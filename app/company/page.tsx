@@ -1,8 +1,8 @@
 "use client";
 
 import { getAllCompanies } from "@/lib/companyApi";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { BiDetail, BiEditAlt, BiTrash } from "react-icons/bi";
 
 export default function Page() {
   const [companies, setCompanies] = useState<Company[]>([]);
@@ -25,6 +25,7 @@ export default function Page() {
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">
                 証券会社名
               </th>
+              <th></th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100 border-t border-gray-100">
@@ -32,6 +33,15 @@ export default function Page() {
               <tr key={company.company_id} className="hover:bg-gray-50">
                 <td className="px-6 py-4">{company.company_id}</td>
                 <td className="px-6 py-4">{company.company}</td>
+                <td className="px-6 py-4 flex gap-2">
+                  <BiDetail size={24} color="blue" className="cursor-pointer" />
+                  <BiEditAlt
+                    size={24}
+                    color="blue"
+                    className="cursor-pointer"
+                  />
+                  <BiTrash size={24} color="red" className="cursor-pointer" />
+                </td>
               </tr>
             ))}
           </tbody>

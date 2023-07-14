@@ -21,6 +21,7 @@ laravel-api - https://github.com/arafipro/jpstock-trade-laravel-api
 
 ## 使用ライブラリ
 
+- [React Icons v4.10.1](https://react-icons.github.io/react-icons)
 - [React Hook Form v7.45.1](https://www.react-hook-form.com/)
 - [Zod v3.21.4](https://zod.dev/)
 

@@ -1,8 +1,8 @@
 "use client";
 
 import { getAllTrades } from "@/lib/tradeApi";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { BiDetail, BiEditAlt, BiTrash } from "react-icons/bi";
 
 export default function Page() {
   const [trades, setMarkets] = useState<Trade[]>([]);
@@ -67,6 +67,7 @@ export default function Page() {
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">
                 PER
               </th>
+              <th></th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100 border-t border-gray-100 text-sm">
@@ -88,6 +89,15 @@ export default function Page() {
                 <td className="px-6 py-4">{trade.chart_img}</td>
                 <td className="px-6 py-4">{trade.per}</td>
                 <td className="px-6 py-4">{trade.pbr}</td>
+                <td className="px-6 py-4 flex gap-2">
+                  <BiDetail size={24} color="blue" className="cursor-pointer" />
+                  <BiEditAlt
+                    size={24}
+                    color="blue"
+                    className="cursor-pointer"
+                  />
+                  <BiTrash size={24} color="red" className="cursor-pointer" />
+                </td>
               </tr>
             ))}
           </tbody>
