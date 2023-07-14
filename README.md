@@ -1,6 +1,19 @@
+# jpstock-trade-next-pc-front
+
+## 日本株取引記録データベース
+
+日本株取引記録アプリPCフロントエンド
+
+## 日本株取引記録アプリ構成
+
+バックエンド：日本株取引記録データベースAPI  
+laravel-api - https://github.com/arafipro/jpstock-trade-laravel-api  
+フロントエンドPC：next-pc-front --> ○  
+フロントエンドmobile：flutter-mobile-front
+
 ## 目的
 
-APIを利用してNext.jsでCRUDを実現する
+日本株取引記録データベースAPIを利用してNext.jsでCRUDを実現する
 
 ## 使用フレームワーク
 
