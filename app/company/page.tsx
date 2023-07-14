@@ -1,0 +1,42 @@
+"use client";
+
+import { getAllCompanies } from "@/lib/companyApi";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+
+export default function Page() {
+  const [companies, setCompanies] = useState<Company[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const companies: Company[] = await getAllCompanies();
+      setCompanies(companies);
+    };
+    fetchData();
+  }, []);
+  return (
+    <main className="py-8 px-8">
+      <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+        <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
+          <thead className="bg-gray-50">
+            <tr>
+              <th scope="col" className="px-6 py-4 font-medium text-gray-900">
+                ID
+              </th>
+              <th scope="col" className="px-6 py-4 font-medium text-gray-900">
+                証券会社名
+              </th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-100 border-t border-gray-100">
+            {companies.map((company) => (
+              <tr key={company.company_id} className="hover:bg-gray-50">
+                <td className="px-6 py-4">{company.company_id}</td>
+                <td className="px-6 py-4">{company.company}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </main>
+  );
+}

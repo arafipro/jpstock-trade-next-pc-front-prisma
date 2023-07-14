@@ -14,7 +14,8 @@ type Company = {
 type Stock = {
   code: number;
   stockname: string;
-  market_id: {
+  market_id: number;
+  market: {
     market_id: number;
     market: string;
   };
