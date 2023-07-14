@@ -1,10 +1,13 @@
 "use client";
 
-import { getAllCompanies } from "@/lib/companyApi";
+import { delCompany, getAllCompanies } from "@/lib/companyApi";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BiDetail, BiEditAlt, BiTrash } from "react-icons/bi";
 
 export default function Page() {
+  const router = useRouter();
   const [companies, setCompanies] = useState<Company[]>([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -13,6 +16,10 @@ export default function Page() {
     };
     fetchData();
   }, []);
+  const handleDeleteCompany = async (id: number) => {
+    await delCompany(id);
+    router.push("/");
+  };
   return (
     <main className="py-8 px-8">
       <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
@@ -40,7 +47,12 @@ export default function Page() {
                     color="blue"
                     className="cursor-pointer"
                   />
-                  <BiTrash size={24} color="red" className="cursor-pointer" />
+                  <BiTrash
+                    size={24}
+                    color="red"
+                    className="cursor-pointer"
+                    onClick={() => handleDeleteCompany(company.company_id)}
+                  />
                 </td>
               </tr>
             ))}
