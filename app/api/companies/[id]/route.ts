@@ -41,7 +41,10 @@ export async function PUT(
   return NextResponse.json(updatedCompany);
 }
 
-export async function DELETE(request: Request, params: { id: number }) {
+export async function DELETE(
+  request: Request,
+  { params }: { params: { id: number } }
+) {
   if (!params.id)
     return NextResponse.json({ message: "Company company_id required" });
 
