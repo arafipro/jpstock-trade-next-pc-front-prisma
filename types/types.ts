@@ -1,9 +1,3 @@
-type Props = {
-  params: {
-    id: number;
-  };
-};
-
 // Market
 type Market = {
   market_id: number;
@@ -16,13 +10,11 @@ type Company = {
   company: string;
 };
 
-
 // Stock
 type Stock = {
   code: number;
   stockname: string;
-  market_id: number;
-  market?: {
+  market_id: {
     market_id: number;
     market: string;
   };
@@ -41,7 +33,7 @@ type Trade = {
   };
   buy_sell: string;
   shares: number;
-	price: number;
+  price: number;
   trading_date: string;
   credit_ratio: number;
   lender_ratio: number;
