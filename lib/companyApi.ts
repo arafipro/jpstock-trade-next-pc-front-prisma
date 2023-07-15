@@ -40,7 +40,7 @@ export async function addCompany(company: Company): Promise<Company> {
 }
 
 export async function updateCompany(company: Company): Promise<Company> {
-  if (window.confirm("Are you sure to create this record?")) {
+  if (window.confirm("Are you sure to update this record?")) {
     const res = await fetch(`${BaseUrl}/${company.company_id}`, {
       method: "PUT",
       headers: {

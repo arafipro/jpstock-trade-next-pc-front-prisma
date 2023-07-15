@@ -1,24 +1,25 @@
 "use client";
 
 import CompanyForm from "@/components/CompanyForm";
-import { addCompany } from "@/lib/companyApi";
+import { updateCompany } from "@/lib/companyApi";
 import { useRouter } from "next/navigation";
 
-export default function Page() {
+export default function Page({ params }: { params: { id: number } }) {
   const router = useRouter();
   const onSubmit = async (data: Company) => {
-    await addCompany({
+    await updateCompany({
       company_id: data.company_id,
       company: data.company,
     });
     router.push("/company");
-	};
+  };
   return (
     <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
-      <h1 className="font-bold text-center text-2xl mb-5">証券会社登録</h1>
+      <h1 className="font-bold text-center text-2xl mb-5">証券会社編集</h1>
       <CompanyForm
+        company_id={params.id}
         onSubmit={onSubmit}
-        onCreate={true}
+        onCreate={false}
       />
     </div>
   );

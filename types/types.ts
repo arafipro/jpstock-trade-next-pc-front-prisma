@@ -4,18 +4,6 @@ type Market = {
   market: string;
 };
 
-// Company
-type Company = {
-  company_id: number;
-  company: string;
-};
-
-type CompanyProps = {
-  company: Company;
-  setCompany: React.Dispatch<React.SetStateAction<Company>>;
-  handleSubmit: React.FormEventHandler<HTMLFormElement>;
-};
-
 // Stock
 type Stock = {
   code: number;

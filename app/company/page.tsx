@@ -48,6 +48,11 @@ export default function Page() {
                     size={24}
                     color="blue"
                     className="cursor-pointer"
+                    onClick={async () =>
+                      await router.push(
+                        `/company/${company.company_id!}/update`
+                      )
+                    }
                   />
                   <BiTrash
                     size={24}
