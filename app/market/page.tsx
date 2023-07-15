@@ -1,10 +1,13 @@
 "use client";
 
 import { getAllMarkets } from "@/lib/marketApi";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BiDetail, BiEditAlt, BiTrash } from "react-icons/bi";
 
 export default function Page() {
+  const router = useRouter();
   const [markets, setMarkets] = useState<Market[]>([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -25,7 +28,9 @@ export default function Page() {
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">
                 市場
               </th>
-              <th></th>
+              <th>
+                <Link href={"/market/create"}>市場登録</Link>
+              </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100 border-t border-gray-100">
@@ -39,6 +44,9 @@ export default function Page() {
                     size={24}
                     color="blue"
                     className="cursor-pointer"
+                    onClick={async () =>
+                      await router.push(`/market/${market.market_id!}/update`)
+                    }
                   />
                   <BiTrash size={24} color="red" className="cursor-pointer" />
                 </td>

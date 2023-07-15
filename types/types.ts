@@ -1,9 +1,3 @@
-// Market
-type Market = {
-  market_id: number;
-  market: string;
-};
-
 // Stock
 type Stock = {
   code: number;
