@@ -32,7 +32,9 @@ export default function Page() {
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">
                 証券会社名
               </th>
-              <th></th>
+              <th>
+                <Link href={"/company/create"}>証券会社登録</Link>
+              </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100 border-t border-gray-100">

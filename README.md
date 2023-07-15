@@ -23,6 +23,7 @@ laravel-api - https://github.com/arafipro/jpstock-trade-laravel-api
 
 - [React Icons v4.10.1](https://react-icons.github.io/react-icons)
 - [React Hook Form v7.45.1](https://www.react-hook-form.com/)
+- [React Hook Form Schema Validation](https://react-hook-form.com/get-started#SchemaValidation)
 - [Zod v3.21.4](https://zod.dev/)
 
 ## 目標
