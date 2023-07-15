@@ -1,6 +1,6 @@
 "use client";
 
-import { getAllMarkets } from "@/lib/marketApi";
+import { delMarket, getAllMarkets } from "@/lib/marketApi";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -16,6 +16,10 @@ export default function Page() {
     };
     fetchData();
   }, []);
+  const handleDeleteMarket = async (id: number) => {
+    await delMarket(id);
+    router.push("/");
+  };
   return (
     <main className="py-8 px-8">
       <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
@@ -48,7 +52,12 @@ export default function Page() {
                       await router.push(`/market/${market.market_id!}/update`)
                     }
                   />
-                  <BiTrash size={24} color="red" className="cursor-pointer" />
+                  <BiTrash
+                    size={24}
+                    color="red"
+                    className="cursor-pointer"
+                    onClick={() => handleDeleteMarket(market.market_id)}
+                  />
                 </td>
               </tr>
             ))}
