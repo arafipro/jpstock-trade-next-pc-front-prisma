@@ -16,7 +16,7 @@ export default function Page() {
     router.push("/stock");
   };
   return (
-    <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
+    <div className="px-8 py-16 xs:p-0 mx-auto md:w-full md:max-w-md">
       <h1 className="font-bold text-center text-2xl mb-5">銘柄登録</h1>
       <StockForm onSubmit={onSubmit} onCreate={true} />
     </div>

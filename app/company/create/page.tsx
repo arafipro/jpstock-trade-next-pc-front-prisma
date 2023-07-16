@@ -12,14 +12,11 @@ export default function Page() {
       company: data.company,
     });
     router.push("/company");
-	};
+  };
   return (
-    <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
+    <div className="px-8 py-16 xs:p-0 mx-auto md:w-full md:max-w-md">
       <h1 className="font-bold text-center text-2xl mb-5">証券会社登録</h1>
-      <CompanyForm
-        onSubmit={onSubmit}
-        onCreate={true}
-      />
+      <CompanyForm onSubmit={onSubmit} onCreate={true} />
     </div>
   );
 }

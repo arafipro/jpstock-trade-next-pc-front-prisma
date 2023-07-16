@@ -7,11 +7,11 @@ import { BiDetail, BiEditAlt, BiTrash } from "react-icons/bi";
 
 export default function Page() {
   const router = useRouter();
-  const [trades, setMarkets] = useState<Trade[]>([]);
+  const [trades, setTrades] = useState<Trade[]>([]);
   useEffect(() => {
     const fetchData = async () => {
       const trades: Trade[] = await getAllTrades();
-      setMarkets(trades);
+      setTrades(trades);
     };
     fetchData();
   }, []);
@@ -20,7 +20,7 @@ export default function Page() {
     router.push("/");
   };
   return (
-    <main className="py-8 px-8">
+    <main className="px-8 py-12">
       <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
         <table className="w-full border-collapse bg-white text-left text-gray-500">
           <thead className="bg-gray-50 text-sm">
