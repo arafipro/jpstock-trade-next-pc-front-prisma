@@ -1,8 +1,5 @@
 import { getCompany } from "@/lib/companyApi";
-import {
-  companyCreateSchema,
-  companyUpdateSchema,
-} from "@/lib/validationSchema/companySchema";
+import { companySchema } from "@/lib/validationSchema/companySchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
@@ -14,7 +11,7 @@ export default function CompanyForm(props: CompanyProps) {
     formState: { errors },
   } = useForm<Company>({
     mode: "onChange",
-    resolver: zodResolver(onCreate ? companyCreateSchema : companyUpdateSchema),
+    resolver: zodResolver(companySchema),
     defaultValues: onCreate
       ? { company_id: 1, company: "" }
       : async () => getCompany(company_id!),

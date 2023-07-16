@@ -1,12 +1,9 @@
 import { getMarket } from "@/lib/marketApi";
-import {
-  marketCreateSchema,
-  marketUpdateSchema,
-} from "@/lib/validationSchema/marketSchema";
+import { marketSchema } from "@/lib/validationSchema/marketSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
-export default function CompanyForm(props: MarketProps) {
+export default function MarketForm(props: MarketProps) {
   const { market_id, onSubmit, onCreate } = props;
   const {
     register,
@@ -14,7 +11,7 @@ export default function CompanyForm(props: MarketProps) {
     formState: { errors },
   } = useForm<Market>({
     mode: "onChange",
-    resolver: zodResolver(onCreate ? marketCreateSchema : marketUpdateSchema),
+    resolver: zodResolver(marketSchema),
     defaultValues: onCreate
       ? { market_id: 1, market: "" }
       : async () => getMarket(market_id!),

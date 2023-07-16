@@ -40,7 +40,7 @@ export async function addMarket(market: Market): Promise<Market> {
 }
 
 export async function updateMarket(market: Market): Promise<Market> {
-  if (window.confirm("Are you sure to create this record?")) {
+  if (window.confirm("Are you sure to update this record?")) {
     const res = await fetch(`${BaseUrl}/${market.market_id}`, {
       method: "PUT",
       headers: {
