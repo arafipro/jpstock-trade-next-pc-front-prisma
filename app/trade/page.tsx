@@ -1,10 +1,12 @@
 "use client";
 
-import { getAllTrades } from "@/lib/tradeApi";
+import { delTrade, getAllTrades } from "@/lib/tradeApi";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BiDetail, BiEditAlt, BiTrash } from "react-icons/bi";
 
 export default function Page() {
+  const router = useRouter();
   const [trades, setMarkets] = useState<Trade[]>([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -13,6 +15,10 @@ export default function Page() {
     };
     fetchData();
   }, []);
+  const handleDeleteTrade = async (id: number) => {
+    await delTrade(id);
+    router.push("/");
+  };
   return (
     <main className="py-8 px-8">
       <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
@@ -96,7 +102,12 @@ export default function Page() {
                     color="blue"
                     className="cursor-pointer"
                   />
-                  <BiTrash size={24} color="red" className="cursor-pointer" />
+                  <BiTrash
+                    size={24}
+                    color="red"
+                    className="cursor-pointer"
+                    onClick={() => handleDeleteTrade(trade.id)}
+                  />
                 </td>
               </tr>
             ))}
