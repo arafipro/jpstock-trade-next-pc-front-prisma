@@ -1,13 +1,13 @@
 "use client";
 
-import { getAllStocks } from "@/lib/stockApi";
+import { delStock, getAllStocks } from "@/lib/stockApi";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BiDetail, BiEditAlt, BiTrash } from "react-icons/bi";
 
 export default function Page() {
-	const router = useRouter();
+  const router = useRouter();
   const [stocks, setStocks] = useState<Stock[]>([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -16,6 +16,10 @@ export default function Page() {
     };
     fetchData();
   }, []);
+  const handleDeleteStock = async (id: number) => {
+    await delStock(id);
+    router.push("/");
+  };
   return (
     <main className="py-8 px-8">
       <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
@@ -52,7 +56,12 @@ export default function Page() {
                       await router.push(`/stock/${stock.code!}/update`)
                     }
                   />
-                  <BiTrash size={24} color="red" className="cursor-pointer" />
+                  <BiTrash
+                    size={24}
+                    color="red"
+                    className="cursor-pointer"
+                    onClick={() => handleDeleteStock(stock.code)}
+                  />
                 </td>
               </tr>
             ))}
