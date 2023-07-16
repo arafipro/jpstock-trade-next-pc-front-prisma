@@ -41,7 +41,7 @@ export async function addStock(stock: Stock): Promise<Stock> {
 }
 
 export async function updateStock(stock: Stock): Promise<Stock> {
-  if (window.confirm("Are you sure to create this record?")) {
+  if (window.confirm("Are you sure to update this record?")) {
     const res = await fetch(`${BaseUrl}/${stock.code}`, {
       method: "PUT",
       headers: {
