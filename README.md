@@ -25,6 +25,7 @@ laravel-api - https://github.com/arafipro/jpstock-trade-laravel-api
 - [React Hook Form v7.45.1](https://www.react-hook-form.com/)
   - [Schema Validation v3.1.1](https://react-hook-form.com/get-started#SchemaValidation)
 - [Zod v3.21.4](https://zod.dev/)
+- [@tailwindcss/line-clamp v0.4.4](https://github.com/tailwindlabs/tailwindcss-line-clamp)
 
 ## 目標
 
