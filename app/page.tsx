@@ -1,9 +1,5 @@
-import Header from "@/components/Header";
+"use client";
 
 export default function Home() {
-  return (
-    <main>
-      {/* <Header /> */}
-    </main>
-  );
+  return <main></main>;
 }

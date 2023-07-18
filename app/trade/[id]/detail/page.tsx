@@ -23,7 +23,7 @@ export default async function Page({ params }: { params: { id: number } }) {
           <div className="w-1/6">
             <dt className="text-gray-900 pb-4">市場</dt>
             <dd className="bg-white text-gray-600 py-4">
-              {trade.code.market.market}
+              {trade.code.market!.market}
             </dd>
           </div>
           <div className="w-1/6">

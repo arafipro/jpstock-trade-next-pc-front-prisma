@@ -1,10 +1,9 @@
-// Trade
 type Trade = {
-  id: number;
+  id?: number;
   code: {
     code: number;
-    stockname: string;
-    market: {
+    stockname?: string;
+    market?: {
       market_id: number;
       market: string;
     };
@@ -18,9 +17,15 @@ type Trade = {
   memo: string;
   company_id: {
     company_id: number;
-    company: string;
+    company?: string;
   };
   chart_img: string;
   per: number;
   pbr: number;
+};
+
+type TradeProps = {
+  id?: number;
+  onSubmit: (data: Trade) => void;
+  onCreate?: boolean;
 };

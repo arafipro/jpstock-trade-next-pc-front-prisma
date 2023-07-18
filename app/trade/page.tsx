@@ -1,6 +1,7 @@
 "use client";
 
 import { delTrade, getAllTrades } from "@/lib/tradeApi";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BiDetail, BiEditAlt, BiTrash } from "react-icons/bi";
@@ -73,32 +74,34 @@ export default function Page() {
               <th scope="col" className="pl-6 py-4 font-medium text-gray-900">
                 PER
               </th>
-              <th></th>
+              <th>
+                <Link href={"/trade/create"}>取引登録</Link>
+              </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100 border-t border-gray-100 text-sm">
             {trades.map((trade) => (
               <tr key={trade.id} className="hover:bg-gray-50">
                 <td className="pl-6 py-4">{trade.id}</td>
-                <td className="pl-6 py-4">{trade.code.code}</td>
-                <td className="pl-6 py-4">{trade.code.stockname}</td>
-                <td className="pl-6 py-4">{trade.code.market.market}</td>
+                <td className="pl-6 py-4">{trade.code!.code}</td>
+                <td className="pl-6 py-4">{trade.code!.stockname}</td>
+                <td className="pl-6 py-4">{trade.code!.market!.market}</td>
                 <td className="pl-6 py-4">{trade.company_id.company}</td>
                 <td className="pl-6 py-4">{trade.buy_sell}</td>
                 <td className="pl-6 py-4">{trade.shares}株</td>
                 <td className="pl-6 py-4">{trade.price}円</td>
                 <td className="pl-6 py-4">{trade.shares * trade.price}円</td>
                 <td className="pl-6 py-4">{trade.trading_date}</td>
-                <td className="pl-6 py-4">{trade.credit_ratio}</td>
-                <td className="pl-6 py-4">{trade.lender_ratio}</td>
+                <td className="pl-6 py-4">{trade.credit_ratio}倍</td>
+                <td className="pl-6 py-4">{trade.lender_ratio}倍</td>
                 <td className="pl-6 py-4 w-64">
                   <p className="line-clamp-1">{trade.memo}</p>
                 </td>
                 <td className="pl-6 py-4 w-64">
                   <p className="line-clamp-1">{trade.chart_img}</p>
                 </td>
-                <td className="pl-6 py-4">{trade.per}</td>
-                <td className="pl-6 py-4">{trade.pbr}</td>
+                <td className="pl-6 py-4">{trade.per}倍</td>
+                <td className="pl-6 py-4">{trade.pbr}倍</td>
                 <td className="pl-6 py-4 flex gap-2">
                   <BiDetail
                     size={24}
@@ -117,7 +120,7 @@ export default function Page() {
                     size={24}
                     color="red"
                     className="cursor-pointer"
-                    onClick={() => handleDeleteTrade(trade.id)}
+                    onClick={() => handleDeleteTrade(trade.id!)}
                   />
                 </td>
               </tr>
