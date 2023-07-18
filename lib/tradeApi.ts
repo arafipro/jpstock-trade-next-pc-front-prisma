@@ -51,7 +51,7 @@ export async function addTrade(trade: Trade): Promise<Trade> {
 
 export async function updateTrade(trade: Trade): Promise<Trade> {
   if (window.confirm("Are you sure to update this record?")) {
-    const res = await fetch(`${BaseUrl}`, {
+		const res = await fetch(`${BaseUrl}/${trade.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -70,9 +70,9 @@ export async function updateTrade(trade: Trade): Promise<Trade> {
         per: trade.per,
         pbr: trade.pbr,
       }),
-    });
-    const newTrade: Trade = await res.json();
-    return newTrade;
+		});
+    const updateTrade: Trade = await res.json();
+    return updateTrade;
   } else {
     return Promise.reject("User canceled the operation.");
   }

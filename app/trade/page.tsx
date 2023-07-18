@@ -94,11 +94,11 @@ export default function Page() {
                 <td className="pl-6 py-4">{trade.trading_date}</td>
                 <td className="pl-6 py-4">{trade.credit_ratio}倍</td>
                 <td className="pl-6 py-4">{trade.lender_ratio}倍</td>
-                <td className="pl-6 py-4 w-64">
-                  <p className="line-clamp-1">{trade.memo}</p>
+                <td className="pl-6 py-4">
+                  <p className="w-28 line-clamp-1">{trade.memo}</p>
                 </td>
-                <td className="pl-6 py-4 w-64">
-                  <p className="line-clamp-1">{trade.chart_img}</p>
+                <td className="pl-6 py-4">
+                  <p className="w-28 line-clamp-1">{trade.chart_img}</p>
                 </td>
                 <td className="pl-6 py-4">{trade.per}倍</td>
                 <td className="pl-6 py-4">{trade.pbr}倍</td>
@@ -115,6 +115,9 @@ export default function Page() {
                     size={24}
                     color="blue"
                     className="cursor-pointer"
+                    onClick={async () =>
+                      await router.push(`/trade/${trade.id}/update`)
+                    }
                   />
                   <BiTrash
                     size={24}
