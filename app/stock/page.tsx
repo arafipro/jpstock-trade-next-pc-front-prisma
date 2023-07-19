@@ -21,7 +21,7 @@ export default function Page() {
     router.push("/");
   };
   return (
-    <main className="px-8 py-12">
+    <main className="px-8 py-12 max-w-screen-lg mx-auto">
       <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
         <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
           <thead className="bg-gray-50">
@@ -35,7 +35,7 @@ export default function Page() {
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">
                 市場
               </th>
-              <th>
+              <th className="text-center">
                 <Link href={"/stock/create"}>銘柄登録</Link>
               </th>
             </tr>
@@ -46,7 +46,7 @@ export default function Page() {
                 <td className="px-6 py-4">{stock.code}</td>
                 <td className="px-6 py-4">{stock.stockname}</td>
                 <td className="px-6 py-4">{stock.market!.market}</td>
-                <td className="px-6 py-4 flex gap-2">
+                <td className="px-6 py-4 flex gap-2 justify-center">
                   <BiDetail size={24} color="blue" className="cursor-pointer" />
                   <BiEditAlt
                     size={24}

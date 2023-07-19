@@ -74,7 +74,7 @@ export default function Page() {
               <th scope="col" className="pl-6 py-4 font-medium text-gray-900">
                 PER
               </th>
-              <th>
+              <th className="text-center">
                 <Link href={"/trade/create"}>取引登録</Link>
               </th>
             </tr>
@@ -102,7 +102,7 @@ export default function Page() {
                 </td>
                 <td className="pl-6 py-4">{trade.per}倍</td>
                 <td className="pl-6 py-4">{trade.pbr}倍</td>
-                <td className="pl-6 py-4 flex gap-2">
+                <td className="px-6 py-4 flex gap-2 justify-center">
                   <BiDetail
                     size={24}
                     color="blue"
