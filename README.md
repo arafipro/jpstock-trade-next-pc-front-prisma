@@ -1,4 +1,4 @@
-# jpstock-trade-next-pc-front-supabase-prisma
+# jpstock-trade-next-pc-front-prisma
 
 jpstock-trade-next-pc-frontをクローンしてprismaを追加採用して開発
 
