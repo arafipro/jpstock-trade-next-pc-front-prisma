@@ -1,4 +1,6 @@
-# jpstock-trade-next-pc-front
+# jpstock-trade-next-pc-front-supabase-prisma
+
+jpstock-trade-next-pc-frontをクローンしてprismaを追加採用して開発
 
 ## 日本株取引記録データベース
 
@@ -25,11 +27,14 @@ laravel-api - https://github.com/arafipro/jpstock-trade-laravel-api
 - [React Hook Form v7.45.1](https://www.react-hook-form.com/)
   - [Schema Validation v3.1.1](https://react-hook-form.com/get-started#SchemaValidation)
 - [Zod v3.21.4](https://zod.dev/)
-- [@tailwindcss/line-clamp v0.4.4](https://github.com/tailwindlabs/tailwindcss-line-clamp)
+- [Tailwind CSS](https://tailwindcss.com/)
+  - [@tailwindcss/line-clamp v0.4.4](https://github.com/tailwindlabs/tailwindcss-line-clamp)
+- [Prisma](https://www.prisma.io/)
 
 ## 目標
 
 - Next.jsのApp Routerの理解
+- Prismaの理解
 - React Hook Formの理解
 - Zodの理解
 - Suspenseの理解
