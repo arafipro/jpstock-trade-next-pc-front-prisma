@@ -1,5 +1,3 @@
-"use client";
-
 export default function Home() {
-  return <main></main>;
+  return <main className="text-center">TopPage</main>;
 }

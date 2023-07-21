@@ -21,7 +21,7 @@ export default function Page() {
     router.push("/");
   };
   return (
-    <main className="px-8 py-12">
+    <main className="p-0.5">
       <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
         <table className="w-full border-collapse bg-white text-left text-gray-500">
           <thead className="bg-gray-50 text-sm">

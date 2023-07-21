@@ -1,6 +1,7 @@
+import HeadNavBar from "@/components/HeadNavBar";
+import SideNavBar from "@/components/SideNavBar";
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: " jpstock-trade-next-pc-front",
@@ -14,9 +15,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body>
-        <Header />
-        {children}
+      <body className="flex w-screen bg-gray-100">
+        <SideNavBar />
+        <div className="w-full">
+          <HeadNavBar />
+          {/* Main */}
+          <div>{children}</div>
+        </div>
       </body>
     </html>
   );
